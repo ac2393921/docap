@@ -25,6 +25,7 @@ func (gui *Gui) layout(g *gocui.Gui) error {
 	}
 
 	leftSideWidth := width / 3
+	mainSideWidth := width / 6
 
 	var vHeights map[string]int
 	usableSpace := height - 4
@@ -38,7 +39,7 @@ func (gui *Gui) layout(g *gocui.Gui) error {
 		"options":    1,
 	}
 
-	v, err := g.SetView("main", width/6+1, vHeights["containers"], width-1, height-2)
+	v, err := g.SetView("main", mainSideWidth+1, vHeights["containers"], width-1, height-2)
 	if err != nil {
 		if err.Error() != "unknown view" {
 			return err
